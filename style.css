@@ -1,0 +1,119 @@
+body {
+  /* se no computador da pessoa não tiver arial, vai helvetica, se não tiver nenhuma das duas ele vai tentar mostrar uma tipografia sans-serif genérica */
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  background-color: #f7f7f7;
+  display: grid;
+  gap: 60px;
+  /* o 60px estão sendo aplicados nos elementos que estão dentro do pai (body) */
+  justify-items: center;
+  /* estudar essa diferença entre align e justify pq não entendo direito */
+  margin-top: 60px;
+}
+
+img {
+  /* não quero a imagem crescendo mais do que o tamanho da tela */
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+p, h1, h2, h3 {
+  margin: 0px;
+} 
+
+p {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* toda vez que ele quebrar, alinhe ao centro */
+  justify-content: center;
+}
+
+.menu a {
+  background: white;
+  /* 15 pixels pra cima e pra baixo, 30 pixels pra um lado e pro outo */
+  padding: 15px 30px;
+  border-radius: 4px;
+  color: black;
+  text-transform: uppercase;
+}
+
+.conteudo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* dar limite pro conteúdo */
+  max-width: 1000px;
+}
+
+.introducao {
+  background: white;
+  padding: 40px;
+  text-align: right;
+  position: relative;
+  display: grid;
+  gap: 20px;
+  align-content: center;
+  justify-items: end;
+}
+
+.detalhe {
+  width: 60px;
+  height: 4px;
+  background: #e21;
+  /* um elemento span não consegue definir width ou height, então tenho que mudar o display pra inline-block */
+  display: inline-block;
+  /* pra eu pegar um elemento e sair do fluxo do layout, tenho que usar o position */
+  position: absolute; /* se eu tenho um posicionamento absoluto, ele vai ser sempre em relação ao body caso o elemento pai não tenha nenhum posicionamento diferente */
+  top: 30px; 
+  right: -30px;
+}
+
+.botao {
+  background: #ee2211;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.subtitulo {
+  font-size: 64px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, .2);
+  text-align: right;
+  padding: 40px;
+  align-self: center; /* pra eu alinhar um elemento específico dentro do grid, tenho que usar o align-self */
+}
+
+.vantagens {
+  background: white;
+  padding: 40px;
+}
+
+.vantagens-item {
+  display: grid;
+  grid-template-columns: auto 1fr; /* auto é o tamanho que o conteúdo ocupa, nesse caso a primeira coluna vai ser auto e a segunda é o quanto sobrar pra ela, nesse caso 1fr */
+  gap: 10px 20px; /* gap é o espaçamento entre as colunas e as linhas, o primeiro valor é o de linha e o segundo é o de coluna */
+  padding: 20px;
+}
+
+.vantagens-item p {
+  grid-column: 2; /* pra eu dizer que o parágrafo vai ocupar a segunda coluna */
+}
+
+.rodape {
+  background-color: white;
+  width: 100%; /* pra eu ocupar a largura toda da tela. a influência do grid que definimos no body que os itens seriam alinhados no centro, ele para de fazer com que os itens tentem se expandir de ponta a ponta. por isso a gente tem expandir ele */
+  text-align: center; /* pra eu alinhar o texto ao centro de novo */
+  padding: 40px; /* eu to falando q ele tem 100% mais 40 px, então ele vai estourar. */
+  box-sizing: border-box; /* pra eu ter certeza que o padding está sendo aplicado dentro da largura da tela*/
+}
